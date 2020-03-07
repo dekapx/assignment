@@ -6,10 +6,10 @@ import com.bloomberg.services.network.model.MultiplyResponse;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MultiplyCommand implements Command<MultiplyRequest, MultiplyResponse> {
+public class MultiplyCommand extends AbstractCommand implements Command<MultiplyRequest, MultiplyResponse> {
     @Override
-    public MultiplyResponse execute(MultiplyRequest multiplyRequest) {
-        return null;
+    public MultiplyResponse execute(MultiplyRequest request) {
+        return invokePostRequest(serviceUrl, request, MultiplyResponse.class);
     }
 
     @Override

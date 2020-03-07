@@ -1,26 +1,23 @@
 package com.bloomberg.services.network.service;
 
+import com.bloomberg.services.network.command.Command;
+import com.bloomberg.services.network.command.CommandFactory;
+import com.bloomberg.services.network.common.CommandType;
 import com.bloomberg.services.network.model.MultiplyRequest;
 import com.bloomberg.services.network.model.MultiplyResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 public class NetworkServiceImpl implements NetworkService {
-    @Value("${calc.service.url}")
-    private String calcServiceUrl;
-
     @Autowired
-    private RestTemplate restTemplate;
+    private CommandFactory commandFactory;
 
     @Override
     public int multiply(final int firstArg, final int secondArg) {
-        MultiplyRequest request = prepareMultiplyRequest(firstArg, secondArg);
-        ResponseEntity<MultiplyResponse> result = restTemplate.postForEntity(calcServiceUrl, request, MultiplyResponse.class);
-        MultiplyResponse response = result.getBody();
+        final MultiplyRequest request = prepareMultiplyRequest(firstArg, secondArg);
+        final Command<MultiplyRequest, MultiplyResponse> command = commandFactory.getCommand(CommandType.MULTIPLY);
+        final MultiplyResponse response = command.execute(request);
         return response.getResult();
     }
 

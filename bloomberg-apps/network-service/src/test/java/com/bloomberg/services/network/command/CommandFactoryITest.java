@@ -16,7 +16,7 @@ public class CommandFactoryITest {
     @Test
     public void getCommand_withInvalidInput_throwsCommandNotFoundException() {
         Exception exception = assertThrows(CommandNotFoundException.class, () -> {
-            commandFactory.getCommand(CommandType.ADD);
+            commandFactory.getCommand(null);
         });
         String expectedMessage = "Invalid command type. Command not found for the given command type.";
         String actualMessage = exception.getMessage();
