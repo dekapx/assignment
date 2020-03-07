@@ -1,4 +1,4 @@
-package com.bloomberg.services.calc.model;
+package com.bloomberg.services.network.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

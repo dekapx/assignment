@@ -8,10 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
-public class CalcServiceImplTest {
+public class CalcServiceITest {
     @Autowired
     private CalcService calcService;
 
@@ -24,7 +23,7 @@ public class CalcServiceImplTest {
 
         String expectedMessage = "Argument must not be zero or a negative number.";
         String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
+        assertThat(actualMessage).isEqualTo(expectedMessage);
     }
 
     @Test
@@ -36,7 +35,7 @@ public class CalcServiceImplTest {
 
         String expectedMessage = "Argument must not be zero or a negative number.";
         String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
+        assertThat(actualMessage).isEqualTo(expectedMessage);
     }
 
     @Test

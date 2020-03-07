@@ -1,4 +1,4 @@
-package com.bloomberg.services.calc.model;
+package com.bloomberg.services.network.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MultiplyResponse {
-    private int result;
+public class MultiplyRequest {
+    private int firstArg;
+    private int secondArg;
 }

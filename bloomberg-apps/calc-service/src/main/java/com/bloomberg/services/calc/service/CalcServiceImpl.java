@@ -11,8 +11,9 @@ public class CalcServiceImpl extends AbstractBaseService implements CalcService 
     @Override
     public MultiplyResponse multiply(final MultiplyRequest request) {
         validatePositiveNumber(request.getFirstArg());
-        validatePositiveNumber(request.getFirstArg());
+        validatePositiveNumber(request.getSecondArg());
         final int result = request.getFirstArg() * request.getSecondArg();
+        log.info("Perform multiply operation with {} & {} and return {}.", request.getFirstArg(), request.getSecondArg(), result);
         return MultiplyResponse.builder().result(result).build();
     }
 }
