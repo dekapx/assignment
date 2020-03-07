@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class CalcServiceImpl implements CalcService {
+public class CalcServiceImpl extends AbstractBaseService implements CalcService {
     @Override
     public MultiplyResponse multiply(final MultiplyRequest request) {
-        log.info("multiply operation invoked with arg {} & {}", request.getFirstArg(), request.getSecondArg());
-        return new MultiplyResponse(request.getFirstArg() * request.getSecondArg());
+        validatePositiveNumber(request.getFirstArg());
+        validatePositiveNumber(request.getFirstArg());
+        final int result = request.getFirstArg() * request.getSecondArg();
+        return MultiplyResponse.builder().result(result).build();
     }
 }
