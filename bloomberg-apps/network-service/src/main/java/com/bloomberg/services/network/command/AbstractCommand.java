@@ -1,6 +1,5 @@
 package com.bloomberg.services.network.command;
 
-import com.bloomberg.services.network.model.MultiplyRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
