@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<servers>
+    <server>
+        <id>1</id>
+        <name>HP G8</name>
+    </server>
+    <server>
+        <id>2</id>
+        <name>Solaris Server</name>
+    </server>
+    <server>
+        <id>3</id>
+        <name>Oracle Server</name>
+    </server>
+    <server>
+        <id>4</id>
+        <name>Dell Server</name>
+    </server>
+    <server>
+        <id>5</id>
+        <name>Dell Server</name>
+    </server>
+</servers>

@@ -1,0 +1,23 @@
+It's a maven based project, so import it to Eclipse/IntelliJ.
+- RobotFactory is the main class to run the project.
+
+
+- RobotFactory
+    - main class to start the flow
+- Component
+    - interface for the delivery components
+    - Componets for delivery are:
+        - MainUnit
+        - Broom
+        - Mop
+
+- Supplier
+    - deliver components to conveyer belt
+    - conveyerBelt capacity is 10 components
+    - if capacity is reached, compnnent added first will be removed (FIFO based)
+
+- Workers
+    - DryWorker
+        - worker for Dry-200 types of Robot
+    - WetWorker
+        - worker for Wet-200 types of Robot

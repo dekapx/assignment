@@ -1,0 +1,35 @@
+Main functionality:
+- command line driven (main class:  MainApp)
+- based on input switch, do one of the following:
+(1) provide help/usage info
+(2) read a server "specification" from a file on local disk (e.g. see server_1.xml) and persist it to the SERVER database table
+(3) count the number of servers currently persisted in the database
+(4) list persisted servers
+(5) delete a persisted server (id of server to delete to be passed in as a command line arg)
+(6) edit name of persisted server (takes command line args to identify id of server and new name)
+
+Additional requirements:
+- add unit tests
+- use ant or maven based build to do compilation, run tests and produce junit report and runnable jar
+
+
+TODO:
+1. Use of framework either JEE 7 or Spring Framework 4
+2. Use of ORM framework as JPA
+3. Use of transaction for database operations.
+4. Use of batch framework to read the file and upload records to database.
+5. Use of scheduler and directory watch service.
+	a. An event listener listening for file to appear in a directory.
+		OR
+	b. Scheduler service to run the batch upload job periodically. 
+6. Schema validation mechanism to make XML compliant to XSD.
+7. Use of SOLID principles and clean coding practices.
+
+
+- Presentation Layer -> REST Interface -> 
+	- Service Layer ->
+		- Persistence Layer
+			- Database
+		- Integration Layer
+			- Integration Systems
+			(Use of JCA or integration framework like Spring Integration or Apache Camel)

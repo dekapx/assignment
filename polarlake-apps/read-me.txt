@@ -1,0 +1,48 @@
+------------------------+
+	Problem Statement	
+------------------------+
+Network Client Service
+Write a server application that accepts requests over the network and sends those request to second server. 
+Have the second server respond to the requests of the client via the first server.
+· The request should be a simple operation e.g. multiple two numbers.
+· The application should be able to handle multiple concurrent requests.
+
+The exercise can be over engineered to show specific design choices.
+
+Write as if this was a production piece of code.
+ 
+Rate of requests – 100 per minute”
+
+------------------------------------+
+	My assumptions and solution			
+------------------------------------+
+- By server application means: (web application deployed on a server)
+	- Two web applications deployed on the same application server instance.
+	- First application receive a remote request from the client.
+	- First application delegate the request to Second application.
+	- Second application process the request and return the response to First application.
+	- First application will send the response back to the client.
+- Application client could be a Java SE client make a remote call to first web application over RMI or REST.
+- Developer is free to choose the technology stack like (Spring or JEE).
+
+--------------------------------------------------------------------------------------------------------------
+Prerequisites: To run the application
+- Maven 3.x
+- Java SE 1.7.x
+- Wildfly-9.0.0.Final 
+
+$ mvn clean install		- To build the project and run unit tests
+$ mvn clean test -Parq-wildfly-managed		- To run Arquillian integration tests
+
+--------------------------------------------------------------------------------------------------------------
+- polarlake-apps consists of two server applications:
+	- network-service
+		- network-service-api	- this project contain interfaces
+		- network-service-ejb	- this project contains ejb componets
+		- network-service-web	- web archive deploys ejb components with interfaces
+		- network-service-jse	- Java SE based client to make remote interaction with ejb components.
+		- network-service-jee-testsuite	- Arquillian based integration tests.
+	- calc-service
+		- calc-service-api	- this project contain interfaces
+		- calc-service-ejb	- this project contains ejb componets
+		- calc-service-web	- web archive deploys ejb components with interfaces	
